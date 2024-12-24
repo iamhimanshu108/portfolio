@@ -1,7 +1,8 @@
-import { FaLinkedin } from "react-icons/fa";
-
+import { FaLinkedinIn  } from "react-icons/fa";
+import { FiGithub } from "react-icons/fi";
 import logo from "../assets/hk1.png";
 import { FaGithub, FaXTwitter } from "react-icons/fa6";
+import { TbBrandLeetcode } from "react-icons/tb";
 
 const Navbar = () => {
   return (
@@ -16,7 +17,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Google">
-               <FaLinkedin /> 
+               <FaLinkedinIn  /> 
              
         </a>
 
@@ -24,7 +25,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Google">
-               <FaGithub /> 
+               <FiGithub /> 
              
         </a>
         
@@ -34,6 +35,13 @@ const Navbar = () => {
             rel="noopener noreferrer"
             aria-label="Twitter">
                <FaXTwitter />
+             
+        </a>
+        <a href="https://leetcode.com/u/iamhimanshu108/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter">
+               <TbBrandLeetcode />
              
         </a>
         
