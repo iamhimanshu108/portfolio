@@ -3,19 +3,26 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  /* Subtle glass effect for main container */
+  background: rgba(24, 24, 28, 0.85);
+  border-radius: 24px;
+  box-shadow: 0 8px 40px 0 rgba(99,102,241,0.10), 0 1.5px 6px 0 rgba(0,0,0,0.10);
+  backdrop-filter: blur(6px);
 }
 
 .logo {
   height: 6em;
   padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  will-change: filter, transform;
+  transition: filter 300ms, transform 400ms cubic-bezier(0.77,0,0.175,1);
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
+  transform: scale(1.08) rotate(-8deg);
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+  transform: scale(1.12) rotate(8deg);
 }
 
 @keyframes logo-spin {
@@ -35,8 +42,90 @@
 
 .card {
   padding: 2em;
+  border-radius: 18px;
+  background: rgba(36, 36, 44, 0.85);
+  box-shadow: 0 4px 24px 0 rgba(99,102,241,0.08);
+  transition: box-shadow 0.3s cubic-bezier(0.77,0,0.175,1), transform 0.3s cubic-bezier(0.77,0,0.175,1);
+}
+.card:hover {
+  /* Full-length shadow for more depth, like experience and projects section */
+  box-shadow: 0 8px 64px 0 #6366f1cc, 0 1.5px 6px 0 rgba(0,0,0,0.10);
+  transform: translateY(-4px) scale(1.03);
+}
+
+/* For animated border-glow, make the shadow full-length as well */
+@keyframes border-glow {
+  0% {
+    box-shadow: 0 8px 64px 0 #6366f1cc, 0 0 0 #f59e4288;
+  }
+  50% {
+    box-shadow: 0 16px 96px 8px #f59e4288, 0 8px 64px 0 #6366f1cc;
+  }
+  100% {
+    box-shadow: 0 8px 64px 0 #6366f1cc, 0 0 0 #f59e4288;
+  }
 }
 
 .read-the-docs {
   color: #888;
+  letter-spacing: 0.04em;
+  transition: color 0.3s;
 }
+.read-the-docs:hover {
+  color: #6366f1;
+  text-shadow: 0 2px 16px #6366f1aa;
+}
+
+/* Animated gradient border for sections */
+.section-glow {
+  border-radius: 18px;
+  border: 2px solid transparent;
+  background: linear-gradient(120deg, #6366f1 0%, #f59e42 100%) border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: border-glow 4s linear infinite;
+}
+
+@keyframes border-glow {
+  0% {
+    box-shadow: 0 8px 64px 0 #6366f1cc, 0 0 0 #f59e4288;
+  }
+  50% {
+    box-shadow: 0 16px 96px 8px #f59e4288, 0 8px 64px 0 #6366f1cc;
+  }
+  100% {
+    box-shadow: 0 8px 64px 0 #6366f1cc, 0 0 0 #f59e4288;
+  }
+}
+
+/* Subtle animated background stars */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.2; }
+}
+.bg-stars {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+}
+.bg-stars span {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2.5s infinite ease-in-out;
+}
+.bg-stars span:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+.bg-stars span:nth-child(2) { top: 30%; left: 80%; animation-delay: 1s; }
+.bg-stars span:nth-child(3) { top: 60%; left: 50%; animation-delay: 1.5s; }
+.bg-stars span:nth-child(4) { top: 80%; left: 10%; animation-delay: 0.7s; }
+.bg-stars span:nth-child(5) { top: 50%; left: 70%; animation-delay: 2s; }
+.bg-stars span:nth-child(6) { top: 20%; left: 60%; animation-delay: 1.2s; }
+.bg-stars span:nth-child(7) { top: 75%; left: 40%; animation-delay: 2.2s; }
+.bg-stars span:nth-child(8) { top: 40%; left: 30%; animation-delay: 0.5s; }
