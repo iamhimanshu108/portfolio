@@ -25,6 +25,7 @@ const childVariants = {
     },
   },
 };
+
 const curveTransition = {
   type: "spring",
   stiffness: 80,
@@ -62,26 +63,68 @@ const Hero = () => {
           transition={{ ...curveTransition, delay: 0.5 }}
         >
           <motion.div
-            className="flex justify-center lg:p-8"
+            className="flex justify-center lg:p-8 relative"
             whileHover={{ scale: 1.06, rotate: 4 }}
             whileTap={{ scale: 0.98, rotate: -2 }}
             transition={curveTransition}
           >
-            <motion.img
-              src={profilePic}
-              alt="Himashu"
-              className="border border-stone-900 rounded-3xl shadow-xl"
-              width={650}
-              height={650}
-              initial={{ x: 100, opacity: 0, rotate: 10 }}
-              animate={{ x: 0, opacity: 1, rotate: 0 }}
-              transition={{ ...curveTransition, delay: 1.2 }}
-              whileHover={{
-                scale: 1.08,
-                rotate: 2,
-                boxShadow: "0px 12px 40px rgba(0,0,0,0.25)",
+            {/* Animated Glow Behind Profile Pic */}
+            <motion.div
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+              style={{
+                width: 340,
+                height: 340,
+                zIndex: 0,
+                borderRadius: "50%",
+                background: "radial-gradient(circle at 50% 50%, #6366f1bb 0%, #f59e4288 60%, transparent 100%)",
+                filter: "blur(32px)",
+                opacity: 0.7,
+              }}
+              animate={{
+                scale: [1, 1.08, 1],
+                opacity: [0.7, 1, 0.7],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
               }}
             />
+            <motion.img
+              src={profilePic}
+              alt="Himanshu"
+              className="relative z-10 border-4 border-[#6366f1] bg-white/10 rounded-full shadow-2xl ring-4 ring-[#f59e42]/30 hover:ring-[#6366f1]/60 transition-all duration-500"
+              width={320}
+              height={320}
+              initial={{ x: 100, opacity: 0, rotate: 10, scale: 0.92 }}
+              animate={{ x: 0, opacity: 1, rotate: 0, scale: 1 }}
+              transition={{ ...curveTransition, delay: 1.2 }}
+              whileHover={{
+                scale: 1.12,
+                rotate: 6,
+                boxShadow: "0px 16px 48px 0px #6366f1bb, 0 2px 8px #f59e42aa",
+                filter: "brightness(1.1) saturate(1.2)",
+              }}
+            />
+            {/* Floating emoji or icon */}
+            <motion.div
+              className="absolute right-0 top-0 z-20"
+              initial={{ y: -30, opacity: 0, scale: 0.7, rotate: -20 }}
+              animate={{ y: 0, opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ ...curveTransition, delay: 2.1 }}
+              whileHover={{
+                scale: 1.2,
+                rotate: 12,
+                transition: curveTransition,
+              }}
+              style={{
+                fontSize: "2.5rem",
+                filter: "drop-shadow(0 2px 12px #6366f1cc)",
+                pointerEvents: "none",
+              }}
+            >
+              🚀
+            </motion.div>
           </motion.div>
         </motion.div>
         <motion.div
@@ -107,7 +150,7 @@ const Hero = () => {
               }}
               transition={curveTransition}
             >
-              Himanshu
+              Himanshu Kumar
             </motion.h2>
             <motion.span
               variants={childVariants}
