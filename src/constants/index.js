@@ -9,7 +9,14 @@ export const HERO_CONTENT = `"As a passionate Java Full Stack Developer, I excel
 
 export const EXPERIENCES = [
   {
-    year: "DEC-2024 - PRESENT",
+    year: "MAY-2025 - PRESENT",
+    role: "SOftware Engineer",
+    company: "BizSkill",
+    description: `Contributing to front-end development and Google Apps Script solutions for B2B operations in mid-sized businesses. I provide automation for daily tasks, streamline business processes, and support ongoing company projects.`,
+    technologies: ["Javascript", "HTML", "CSS", "Google AppScript", "Google Sheets","Google App Sheets API"],
+  },
+  {
+    year: "DEC-2024 - JAN-2025",
     role: "Full Stack Developer intern",
     company: "Unified Mentors",
     description: `During this internship, I gained hands-on experience in both front-end and back-end technologies. Additionally, I completed two projects during this period.`,
