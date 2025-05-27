@@ -1,5 +1,4 @@
-// import profilePic from "../assets/raviKumarProfile.webp"
-import profilePic from "../assets/hk1.jpg";
+import profilePic from "../assets/image1.jpg";
 import { HERO_CONTENT } from "../constants";
 import { motion } from "framer-motion";
 
@@ -83,9 +82,10 @@ const Hero = () => {
               animate={{
                 scale: [1, 1.08, 1],
                 opacity: [0.7, 1, 0.7],
+                rotate: [0, 8, -8, 0],
               }}
               transition={{
-                duration: 6,
+                duration: 8,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
@@ -105,17 +105,28 @@ const Hero = () => {
                 boxShadow: "0px 16px 48px 0px #6366f1bb, 0 2px 8px #f59e42aa",
                 filter: "brightness(1.1) saturate(1.2)",
               }}
+              whileTap={{
+                scale: 0.96,
+                rotate: -4,
+                filter: "brightness(0.95) saturate(0.9)",
+              }}
             />
-            {/* Floating emoji or icon */}
+            {/* Floating emoji or icon with bounce animation */}
             <motion.div
               className="absolute right-0 top-0 z-20"
               initial={{ y: -30, opacity: 0, scale: 0.7, rotate: -20 }}
-              animate={{ y: 0, opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ ...curveTransition, delay: 2.1 }}
-              whileHover={{
-                scale: 1.2,
-                rotate: 12,
-                transition: curveTransition,
+              animate={{
+                y: [0, -10, 0, 10, 0],
+                opacity: 1,
+                scale: 1,
+                rotate: [0, 12, -12, 0],
+              }}
+              transition={{
+                ...curveTransition,
+                delay: 2.1,
+                duration: 3,
+                repeat: Infinity,
+                repeatType: "loop",
               }}
               style={{
                 fontSize: "2.5rem",

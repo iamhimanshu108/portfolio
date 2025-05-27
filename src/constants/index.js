@@ -3,7 +3,7 @@ import project2 from "../assets/projects/password.png";
 import project3 from "../assets/projects/rockpaper.png";
 
 
-export const HERO_CONTENT = `"As a dedicated Full Stack Web Developer, I have developed a strong proficiency in both front-end and back-end technologies. My front-end expertise includes React, while my back-end skills encompass Spring Boot, MySQL, and MongoDB."`;
+export const HERO_CONTENT = `"As a passionate Java Full Stack Developer, I excel in building robust and scalable web applications using modern technologies. My expertise spans front-end frameworks like React for creating dynamic user interfaces, and powerful back-end solutions with Java, Spring Boot, MySQL, and MongoDB. I am committed to delivering high-quality, efficient, and maintainable code across the entire development stack."`;
 
 
 
